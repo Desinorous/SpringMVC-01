@@ -9,7 +9,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class HelloController {
     @GetMapping("/")
     public String index() {
-        return "Hello World From Son";
+        return "Hello World From Son ";
+    }
+
+    @GetMapping("/user")
+    public String user() {
+        return "Hello World From User ";
+    }
+
+    @GetMapping("/admin")
+    public String admin() {
+        return "Hello World From Admin ";
     }
     
 }
