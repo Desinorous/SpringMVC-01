@@ -27,7 +27,7 @@
             <div class="col-md-6 col-12 mx-auto">
               <h3>Create a user</h3>
               <hr />
-              <form:form method="post" action="/admin/user/create" modelAttribute="newUser">
+              <form:form action="/admin/user/create" method="post" modelAttribute="newUser">
                 <div class="mb-3">
                   <label class="form-label">Email:</label>
                   <form:input type="email" class="form-control" path="email" />
@@ -45,7 +45,7 @@
 
                 <div class="mb-3">
                   <label class="form-label">Full Name:</label>
-                  <form:input type="text" class="form-control" path="fullName" />
+                  <form:input type="text" class="form-control" path="fullname" />
                 </div>
 
                 <div class="mb-3">
