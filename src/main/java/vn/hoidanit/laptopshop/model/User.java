@@ -1,24 +1,25 @@
 package vn.hoidanit.laptopshop.model;
 
+import jakarta.annotation.Generated;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "users")
 public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
     private String email;
     private String password;
     private String fullname;
     private String address;
     private String phone;
-
-    public User() {
-    }
-
-    public User(long id, String email, String password, String fullname, String address, String phone) {
-        this.id = id;
-        this.email = email;
-        this.password = password;
-        this.fullname = fullname;
-        this.address = address;
-        this.phone = phone;
-    }
 
     public long getId() {
         return id;
@@ -73,7 +74,5 @@ public class User {
         return "User [id=" + id + ", email=" + email + ", password=" + password + ", fullname=" + fullname
                 + ", address=" + address + ", phone=" + phone + "]";
     }
-
-    
 
 }
