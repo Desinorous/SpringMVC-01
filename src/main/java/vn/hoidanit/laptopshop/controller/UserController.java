@@ -1,6 +1,7 @@
 package vn.hoidanit.laptopshop.controller;
 
 import java.security.Provider.Service;
+import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,9 +29,9 @@ public class UserController {
 
     @RequestMapping("/")
     public String getHomePage(Model model) {
-        String test = this.userService.handleHello();
-        model.addAttribute("eric", test);
-        model.addAttribute("sondz", "son dzai vcl");
+        List<User> listUser = this.userService.getAllUserByEmail("vanson010825@gmail.com");
+        System.out.println(listUser);
+        model.addAttribute("eric", listUser);
         return "home";
     }
 
@@ -41,7 +42,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public String requestMethodName(Model m odel, @ModelAttribute("newUser") User user) {
+    public String requestMethodName(Model model, @ModelAttribute("newUser") User user) {
         System.out.println("hello" + user);
         this.userService.handleSaveUser(user);
         return "home";

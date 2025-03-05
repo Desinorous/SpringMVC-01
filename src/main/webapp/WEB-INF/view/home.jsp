@@ -26,7 +26,6 @@
     <body>
       <h1>Hello from JSP</h1>
       <c:out value="${eric}" />
-      ${sondz}
       <button>Submit</button>
     </body>
 
