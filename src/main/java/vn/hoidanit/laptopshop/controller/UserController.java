@@ -2,6 +2,7 @@ package vn.hoidanit.laptopshop.controller;
 
 import java.security.Provider.Service;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +17,7 @@ import vn.hoidanit.laptopshop.service.UserService;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class UserController {
@@ -40,6 +42,13 @@ public class UserController {
         List<User> listUser = this.userService.getAllUser();
         model.addAttribute("users", listUser);
         return "admin/user/table-user";
+    }
+
+    @RequestMapping(value = "/admin/user/{id}")
+    public String getUserDetailPage(Model model, @PathVariable Long id) {
+        User user = this.userService.getUserById(id);
+        model.addAttribute("user", user);
+        return "admin/user/userDetail";
     }
 
     @RequestMapping(value = "/admin/user/create")
