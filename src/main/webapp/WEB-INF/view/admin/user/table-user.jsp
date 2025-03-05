@@ -45,7 +45,7 @@
                     <tr>
                       <td>${user.id}</td>
                       <td>${user.email}</td>
-                      <td>${user.fullName}</td>
+                      <td>${user.fullname}</td>
                       <td>
                         <a href="/admin/user/${user.id}" class="btn btn-info">View</a>
                         <a href="/admin/user/update/${user.id}" class="btn btn-warning">Edit</a>
