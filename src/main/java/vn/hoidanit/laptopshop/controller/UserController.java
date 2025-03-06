@@ -83,7 +83,6 @@ public class UserController {
         User currentUser = this.userService.getUserById(updateUser.getId());
         if (currentUser != null) {
             currentUser.setAddress(updateUser.getAddress());
-            currentUser.setEmail(updateUser.getEmail());
             currentUser.setFullname(updateUser.getFullname());
             currentUser.setPhone(updateUser.getPhone());
             this.userService.handleSaveUser(currentUser);

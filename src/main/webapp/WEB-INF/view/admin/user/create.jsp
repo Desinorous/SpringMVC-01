@@ -30,12 +30,12 @@
               <form:form action="/admin/user/create" method="post" modelAttribute="newUser">
                 <div class="mb-3">
                   <label class="form-label">Email:</label>
-                  <form:input type="email" class="form-control" path="email" />
+                  <form:input type="email" class="form-control" id="email" path="email" required="required" />
                 </div>
 
                 <div class="mb-3">
                   <label class="form-label">Password:</label>
-                  <form:input type="password" class="form-control" path="password" />
+                  <form:input type="password" class="form-control" id="password" path="password" />
                 </div>
 
                 <div class="mb-3">
@@ -53,15 +53,21 @@
                   <form:input type="text" class="form-control" path="address" />
                 </div>
 
-                <button type="submit" class="btn btn-primary">Create</button>
+                <div class="d-flex justify-content-between">
+                  <button type="submit" class="btn btn-primary">Create</button>
+                  <a href="/admin/user" class="btn btn-info">Return</a>
+                </div>
               </form:form>
             </div>
 
           </div>
 
         </div>
-
-
+        <script>
+          document.getElementById("email").addEventListener("invalid", function (event) {
+            event.target.setCustomValidity("Vui lòng nhập địa chỉ email!");
+          });
+        </script>
       </body>
 
       </html>
