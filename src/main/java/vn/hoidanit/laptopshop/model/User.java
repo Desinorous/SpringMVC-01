@@ -1,10 +1,15 @@
 package vn.hoidanit.laptopshop.model;
 
+import java.util.List;
+
 import jakarta.annotation.Generated;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -20,6 +25,16 @@ public class User {
     private String fullname;
     private String address;
     private String phone;
+
+    private String avatar;
+
+    // RoleID
+    @ManyToOne
+    @JoinColumn(name = "roleId")
+    private Roles role;
+
+    @OneToMany(mappedBy = "user")
+    private List<Orders> order;
 
     public long getId() {
         return id;
@@ -69,10 +84,18 @@ public class User {
         this.phone = phone;
     }
 
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
     @Override
     public String toString() {
         return "User [id=" + id + ", email=" + email + ", password=" + password + ", fullname=" + fullname
-                + ", address=" + address + ", phone=" + phone + "]";
+                + ", address=" + address + ", phone=" + phone + ", avatar=" + avatar + "]";
     }
 
 }
