@@ -37,6 +37,22 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Orders> order;
 
+    public Roles getRole() {
+        return role;
+    }
+
+    public void setRole(Roles role) {
+        this.role = role;
+    }
+
+    public List<Orders> getOrder() {
+        return order;
+    }
+
+    public void setOrder(List<Orders> order) {
+        this.order = order;
+    }
+
     public long getId() {
         return id;
     }

@@ -47,7 +47,8 @@
                     <div class="col-md-6 col-12 mx-auto">
                       <h3>Create a user</h3>
                       <hr />
-                      <form:form action="/admin/user/create" method="post" modelAttribute="newUser">
+                      <form:form action="/admin/user/create" method="post" modelAttribute="newUser"
+                        enctype="multipart/form-data">
                         <div class="row">
                           <div class="form-group col-md-6">
                             <label class="form-label">Email:</label>
@@ -79,16 +80,17 @@
                         <div class="row mt-4">
                           <div class="form-group col-md-6">
                             <label class="form-label">Role:</label>
-                            <select class="form-select">
+                            <form:select class="form-select" path="role.name">
                               <option selected>Choose...</option>
-                              <option value="1">Admin</option>
-                              <option value="2">User</option>
-                            </select>
+                              <form:option value="admin">Admin</form:option>
+                              <form:option value="user">User</form:option>
+                            </form:select>
                           </div>
 
                           <div class="form-group col-md-6">
                             <label class="form-label" for="avatarFile">Avatar:</label>
-                            <input class="form-control" type="file" id="avatarFile" accept=".png, .jpg, .jpeg">
+                            <input class="form-control" type="file" id="avatarFile" name="file"
+                              accept=".png, .jpg, .jpeg">
                           </div>
                         </div>
                         <div class="col-12 mb-3 mt-4">

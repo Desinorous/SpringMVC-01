@@ -1,5 +1,10 @@
 package vn.hoidanit.laptopshop.controller.admin;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.BufferOverflowException;
 import java.security.Provider.Service;
 import java.util.List;
 import java.util.Optional;
@@ -10,9 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
+import jakarta.servlet.ServletContext;
 import vn.hoidanit.laptopshop.model.User;
 import vn.hoidanit.laptopshop.repository.UserRepository;
+import vn.hoidanit.laptopshop.service.UploadService;
 import vn.hoidanit.laptopshop.service.UserService;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,11 +32,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 @Controller
 public class UserController {
     private final UserService userService;
-    private final UserRepository userRepository;
+    private final UploadService uploadService;
 
-    public UserController(UserService userService, UserRepository userRepository) {
+    public UserController(UserService userService, UploadService uploadService) {
         this.userService = userService;
-        this.userRepository = userRepository;
+        this.uploadService = uploadService;
     }
 
     // Home Page
@@ -57,16 +65,19 @@ public class UserController {
     }
 
     // Create User Page
-    @RequestMapping(value = "/admin/user/create")
+    @GetMapping("/admin/user/create")
     public String getCreateUserPage(Model model) {
         model.addAttribute("newUser", new User());
         return "admin/user/create";
     }
 
     // Return User Table Page After Create User
-    @RequestMapping(value = "/admin/user/create", method = RequestMethod.POST)
-    public String getTableUserPage(Model model, @ModelAttribute("newUser") User user) {
-        this.userService.handleSaveUser(user);
+    @PostMapping("/admin/user/create")
+    public String getTableUserPage(Model model, @ModelAttribute("newUser") User user,
+            @RequestParam("file") MultipartFile file) {
+        String targetFolder = "avatar";
+        String avatarName = this.uploadService.saveUploadFile(file, targetFolder);
+        // this.userService.handleSaveUser(user);
         return "redirect:/admin/user";
     }
 
