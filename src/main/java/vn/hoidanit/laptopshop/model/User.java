@@ -28,11 +28,12 @@ public class User {
 
     private String avatar;
 
-    // RoleID
+    // Join Roles
     @ManyToOne
-    @JoinColumn(name = "roleId")
+    @JoinColumn(name = "role_id")
     private Roles role;
 
+    // Join Orders
     @OneToMany(mappedBy = "user")
     private List<Orders> order;
 

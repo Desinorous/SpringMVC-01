@@ -8,6 +8,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Orders {
@@ -17,8 +18,13 @@ public class Orders {
 
     private double totalprice;
 
+    // Join Order Detail
+    @OneToMany(mappedBy = "order")
+    private List<OrderDetail> orderDetail;
+
+    // Join User
     @ManyToOne
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "user_id")
     private User user;
 
     public long getId() {

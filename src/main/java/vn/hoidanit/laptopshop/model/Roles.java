@@ -18,6 +18,7 @@ public class Roles {
     private String name;
     private String description;
 
+    // Join User
     @OneToMany(mappedBy = "role")
     private List<User> user;
 

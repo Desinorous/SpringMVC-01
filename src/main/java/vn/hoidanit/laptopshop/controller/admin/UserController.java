@@ -1,4 +1,4 @@
-package vn.hoidanit.laptopshop.controller;
+package vn.hoidanit.laptopshop.controller.admin;
 
 import java.security.Provider.Service;
 import java.util.List;
@@ -45,7 +45,7 @@ public class UserController {
     public String getUserPage(Model model) {
         List<User> listUser = this.userService.getAllUser();
         model.addAttribute("users", listUser);
-        return "admin/user/table-user";
+        return "admin/user/show";
     }
 
     // User Detail Page
@@ -53,7 +53,7 @@ public class UserController {
     public String getUserDetailPage(Model model, @PathVariable Long id) {
         User user = this.userService.getUserById(id);
         model.addAttribute("user", user);
-        return "admin/user/userDetail";
+        return "admin/user/detail";
     }
 
     // Create User Page
@@ -95,7 +95,7 @@ public class UserController {
     public String getDeleteUserPage(Model model, @PathVariable long id) {
         User deleteUser = this.userService.getUserById(id);
         model.addAttribute("deleteUser", deleteUser);
-        return "/admin/user/deleteUser";
+        return "/admin/user/delete";
     }
 
     @PostMapping("/admin/user/delete")
