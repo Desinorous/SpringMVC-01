@@ -9,6 +9,7 @@ import java.security.Provider.Service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,10 +34,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class UserController {
     private final UserService userService;
     private final UploadService uploadService;
+    private final PasswordEncoder passwordEncoder;
 
-    public UserController(UserService userService, UploadService uploadService) {
+    public UserController(UserService userService, UploadService uploadService, PasswordEncoder passwordEncoder) {
         this.userService = userService;
         this.uploadService = uploadService;
+        this.passwordEncoder = passwordEncoder;
     }
 
     // Home Page
@@ -77,7 +80,11 @@ public class UserController {
             @RequestParam("file") MultipartFile file) {
         String targetFolder = "avatar";
         String avatarName = this.uploadService.saveUploadFile(file, targetFolder);
-        // this.userService.handleSaveUser(user);
+        String hashPassword = this.passwordEncoder.encode(user.getPassword());
+        user.setAvatar(avatarName);
+        user.setPassword(hashPassword);
+        user.setRole(this.userService.getRoleByName(user.getRole().getName()));
+        this.userService.handleSaveUser(user);
         return "redirect:/admin/user";
     }
 

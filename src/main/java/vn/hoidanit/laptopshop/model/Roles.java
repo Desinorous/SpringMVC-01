@@ -3,6 +3,7 @@ package vn.hoidanit.laptopshop.model;
 import java.util.List;
 
 import jakarta.annotation.Generated;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,7 +16,10 @@ public class Roles {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(name = "name", columnDefinition = "nvarchar(50)")
     private String name;
+
+    @Column(name = "description", columnDefinition = "nvarchar(255)")
     private String description;
 
     // Join User

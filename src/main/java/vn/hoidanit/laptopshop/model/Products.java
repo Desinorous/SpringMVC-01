@@ -1,5 +1,6 @@
 package vn.hoidanit.laptopshop.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,14 +13,26 @@ public class Products {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(name = "name", columnDefinition = "nvarchar")
     private String name;
+
     private double price;
+
     private String image;
+
+    @Column(name = "detailDesc", columnDefinition = "nvarchar(max)")
     private String detailDesc;
+
+    @Column(name = "shortDesc", columnDefinition = "nvarchar(255)")
     private String shortDesc;
+
     private long quantity;
     private long sold;
+
+    @Column(name = "factory", columnDefinition = "nvarchar(255)")
     private String factory;
+
+    @Column(name = "target", columnDefinition = "nvarchar(255)")
     private String target;
 
     public long getId() {

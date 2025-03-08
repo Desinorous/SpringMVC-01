@@ -3,6 +3,7 @@ package vn.hoidanit.laptopshop.model;
 import java.util.List;
 
 import jakarta.annotation.Generated;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,8 +23,13 @@ public class User {
 
     private String email;
     private String password;
+
+    @Column(name = "fullname", columnDefinition = "nvarchar(50)")
     private String fullname;
+
+    @Column(name = "address", columnDefinition = "nvarchar(255)")
     private String address;
+
     private String phone;
 
     private String avatar;
