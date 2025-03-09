@@ -53,29 +53,34 @@
                                                     <div class="form-group col-md-6">
                                                         <label class="form-label">Name:</label>
                                                         <form:input type="text" class="form-control" id="name"
-                                                            path="name" required="required" />
+                                                            path="name" />
+                                                        <form:errors style="color: red;" path="name" />
                                                     </div>
 
                                                     <div class="form-group col-md-6">
                                                         <label class="form-label">Price:</label>
                                                         <form:input type="number" step="1" class="form-control"
                                                             id="password" path="price" />
+                                                        <form:errors style="color: red;" path="price" />
                                                     </div>
                                                 </div>
 
                                                 <div class="mb-3 mt-4">
                                                     <label class="form-label">Detail Description:</label>
                                                     <form:input type="text" class="form-control" path="detailDesc" />
+                                                    <form:errors style="color: red;" path="detailDesc" />
                                                 </div>
                                                 <div class="row mt-4">
                                                     <div class="form-group col-md-6">
                                                         <label class="form-label">Short Description:</label>
                                                         <form:input type="text" class="form-control" path="shortDesc" />
+                                                        <form:errors style="color: red;" path="shortDesc" />
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label class="form-label">Quantity:</label>
                                                         <form:input type="number" class="form-control"
                                                             path="quantity" />
+                                                        <form:errors style="color: red;" path="quantity" />
                                                     </div>
                                                 </div>
 
@@ -119,7 +124,7 @@
 
                                                 <div class="d-flex justify-content-between mt-4">
                                                     <button type="submit" class="btn btn-primary">Create</button>
-                                                    <a href="/admin/user" class="btn btn-info">Return</a>
+                                                    <a href="/admin/product" class="btn btn-info">Return</a>
                                                 </div>
 
                                             </form:form>
@@ -136,13 +141,6 @@
                 </div>
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
                     crossorigin="anonymous"></script>
-                <!-- <script src="js/scripts.js"></script> -->
-
-                <script>
-                    document.getElementById("email").addEventListener("invalid", function (event) {
-                        event.target.setCustomValidity("Vui lòng nhập địa chỉ email!");
-                    });
-                </script>
             </body>
 
             </html>

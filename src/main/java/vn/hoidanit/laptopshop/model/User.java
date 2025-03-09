@@ -28,12 +28,13 @@ public class User {
     @NotNull
     @Email(message = "Email is not valid", regexp = ".+@.+\\..+")
     private String email;
+
     @NotNull
-    @Min(value = 6, message = "Password phải có tối thiểu 6 ký tự")
+    @Size(min = 6, message = "Password phải có tối thiểu 6 ký tự")
     private String password;
 
     @NotNull
-    @Min(value = 5, message = "FullName phải có tối thiểu 5 ký tự")
+    @Size(min = 5, message = "Full Name phải có tối thiểu 5 ký tự")
     @Column(name = "fullname", columnDefinition = "nvarchar(50)")
     private String fullname;
 

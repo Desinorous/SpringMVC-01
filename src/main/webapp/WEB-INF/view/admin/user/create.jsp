@@ -53,13 +53,13 @@
                           <div class="form-group col-md-6">
                             <label class="form-label">Email:</label>
                             <form:input type="email" class="form-control" id="email" path="email" />
-                            <form:errors cssclass" />
+                            <form:errors style="color: red;" path="email" />
                           </div>
 
                           <div class="form-group col-md-6">
                             <label class="form-label">Password:</label>
                             <form:input type="password" class="form-control" id="password" path="password" />
-                            <form:errors style="color: red;" path="email" />
+                            <form:errors style="color: red;" path="password" />
                           </div>
                         </div>
 
@@ -67,6 +67,7 @@
                           <div class="form-group col-md-6">
                             <label class="form-label">Full Name:</label>
                             <form:input type="text" class="form-control" path="fullname" />
+                            <form:errors style="color: red;" path="fullname" />
                           </div>
                           <div class="form-group col-md-6">
                             <label class="form-label">Phone number:</label>
@@ -119,7 +120,6 @@
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
           crossorigin="anonymous"></script>
-        <!-- <script src="js/scripts.js"></script> -->
       </body>
 
       </html>

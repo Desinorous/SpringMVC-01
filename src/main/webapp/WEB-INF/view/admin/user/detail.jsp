@@ -45,6 +45,9 @@
                                                     ${user.fullname}
                                                 </div>
                                                 <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item"><img
+                                                            style="width: 200px; height: 200px; object-fit: cover;"
+                                                            src="/img/avatar/${user.avatar}" alt=""></li>
                                                     <li class="list-group-item">ID: ${user.id}</li>
                                                     <li class="list-group-item">Email: ${user.email}</li>
                                                     <li class="list-group-item">Address: ${user.address}</li>
@@ -66,7 +69,6 @@
                 </div>
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
                     crossorigin="anonymous"></script>
-                <script src="js/scripts.js"></script>
             </body>
 
             </html>

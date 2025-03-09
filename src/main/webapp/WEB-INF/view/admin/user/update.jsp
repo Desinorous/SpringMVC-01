@@ -23,6 +23,12 @@
         <script>
           $(document).ready(() => {
             const avatarFile = $("#avatarFile");
+            const orgImage = "${updatedUser.avatar}";
+            if (orgImage) {
+              const urlImage = "/img/avatar/" + orgImage;
+              $("#avatarPreview").attr("src", urlImage);
+              $("#avatarPreview").css({ "display": "block" });
+            }
             avatarFile.change(function (e) {
               const imgURL = URL.createObjectURL(e.target.files[0]);
               $("#avatarPreview").attr("src", imgURL);
@@ -92,9 +98,8 @@
                           </div>
                         </div>
                         <div class="col-12 mb-3 mt-4">
-                          <img class="mx-auto" style="max-height: 250px; display: block;" alt="avatar preview"
-                            id="avatarPreview"
-                            src="/assets/img/avatar/1741441213899-86f73b80e7424f66f2218903e4e6eaa8.jpg">
+                          <img class="mx-auto" style="max-height: 250px; display: none;" alt="avatar preview"
+                            id="avatarPreview">
                         </div>
 
                         <div class="d-flex justify-content-between">
@@ -114,7 +119,6 @@
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
           crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
       </body>
 
       </html>

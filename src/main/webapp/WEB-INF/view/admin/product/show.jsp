@@ -49,18 +49,18 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <c:forEach items="${users}" var="user">
+                                                <c:forEach items="${products}" var="product">
                                                     <tr>
-                                                        <td>${user.id}</td>
-                                                        <td>${user.email}</td>
-                                                        <td>${user.fullname}</td>
-                                                        <td>${user.getRole().getName()}</td>
+                                                        <td>${product.id}</td>
+                                                        <td>${product.name}</td>
+                                                        <td>${product.price}</td>
+                                                        <td>${product.factory}</td>
                                                         <td>
-                                                            <a href="/admin/user/${user.id}"
+                                                            <a href="/admin/product/${product.id}"
                                                                 class="btn btn-info">View</a>
-                                                            <a href="/admin/user/update/${user.id}"
+                                                            <a href="/admin/product/update/${product.id}"
                                                                 class="btn btn-warning">Edit</a>
-                                                            <a href="/admin/user/delete/${user.id}"
+                                                            <a href="/admin/product/delete/${product.id}"
                                                                 class="btn btn-danger">Delete</a>
                                                         </td>
                                                     </tr>
@@ -79,7 +79,6 @@
                 </div>
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
                     crossorigin="anonymous"></script>
-                <script src="js/scripts.js"></script>
             </body>
 
             </html>
