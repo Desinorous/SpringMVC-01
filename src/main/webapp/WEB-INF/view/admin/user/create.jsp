@@ -53,11 +53,13 @@
                           <div class="form-group col-md-6">
                             <label class="form-label">Email:</label>
                             <form:input type="email" class="form-control" id="email" path="email" />
+                            <form:errors cssclass" />
                           </div>
 
                           <div class="form-group col-md-6">
                             <label class="form-label">Password:</label>
                             <form:input type="password" class="form-control" id="password" path="password" />
+                            <form:errors style="color: red;" path="email" />
                           </div>
                         </div>
 

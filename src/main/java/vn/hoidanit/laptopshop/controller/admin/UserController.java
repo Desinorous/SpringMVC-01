@@ -70,15 +70,19 @@ public class UserController {
 
     @PostMapping("/admin/user/create")
     public String getTableUserPage(Model model, @ModelAttribute("newUser") @Valid User user,
-            BindingResult bindingResult,
+            BindingResult newUserbindingResult,
             @RequestParam("file") MultipartFile file) {
 
         // Validate
-        List<FieldError> errors = bindingResult.getFieldErrors();
+        List<FieldError> errors = newUserbindingResult.getFieldErrors();
         for (FieldError fieldError : errors) {
-            System.out.println(">>>>" + fieldError.getObjectName() + " - " + fieldError.getDefaultMessage());
+            System.out.println(">>>>" + fieldError.getField() + " - " + fieldError.getDefaultMessage());
         }
-        //
+
+        if (newUserbindingResult.hasErrors()) {
+            return "/admin/user/create";
+        }
+
         String avatarName = this.uploadService.saveUploadFile(file, "avatar");
         String hashPassword = this.passwordEncoder.encode(user.getPassword());
         user.setAvatar(avatarName);

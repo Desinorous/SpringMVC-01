@@ -19,6 +19,9 @@ public class UploadService {
     }
 
     public String saveUploadFile(MultipartFile file, String targetFolder) {
+        if (file.isEmpty()) {
+            return "";
+        }
         String rootPath = this.servletContext.getRealPath("/assets/img");
         String finalName = "";
         try {
