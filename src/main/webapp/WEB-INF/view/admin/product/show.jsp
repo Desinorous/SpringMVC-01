@@ -28,8 +28,50 @@
                     <jsp:include page="../layout/sidebar.jsp" />
                     <div id="layoutSidenav_content">
                         <main>
-                            <h1 style="text-align: center;" class="mt-3">Manage Users</h1>
+                            <h1 style="text-align: center;" class="mt-3">Manage Products</h1>
                             <div class="container-fluid p-5 mt-3">
+                                <div class="row">
+                                    <div class="col-12 mx-auto">
+                                        <div class="d-flex justify-content-between">
+                                            <h3>Table Products</h3>
+                                            <a href="/admin/product/create" class="btn btn-primary">Add a product</a>
+                                        </div>
+
+                                        <hr />
+                                        <table class="table table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Name</th>
+                                                    <th>Price</th>
+                                                    <th>Factory</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <c:forEach items="${users}" var="user">
+                                                    <tr>
+                                                        <td>${user.id}</td>
+                                                        <td>${user.email}</td>
+                                                        <td>${user.fullname}</td>
+                                                        <td>${user.getRole().getName()}</td>
+                                                        <td>
+                                                            <a href="/admin/user/${user.id}"
+                                                                class="btn btn-info">View</a>
+                                                            <a href="/admin/user/update/${user.id}"
+                                                                class="btn btn-warning">Edit</a>
+                                                            <a href="/admin/user/delete/${user.id}"
+                                                                class="btn btn-danger">Delete</a>
+                                                        </td>
+                                                    </tr>
+                                                </c:forEach>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+
                             </div>
                         </main>
                         <jsp:include page="../layout/footer.jsp" />

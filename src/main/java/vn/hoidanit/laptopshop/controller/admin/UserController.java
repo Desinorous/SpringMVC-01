@@ -12,6 +12,8 @@ import java.util.Optional;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import jakarta.servlet.ServletContext;
+import jakarta.validation.Valid;
 import vn.hoidanit.laptopshop.model.User;
 import vn.hoidanit.laptopshop.repository.UserRepository;
 import vn.hoidanit.laptopshop.service.UploadService;
@@ -40,15 +43,6 @@ public class UserController {
         this.userService = userService;
         this.uploadService = uploadService;
         this.passwordEncoder = passwordEncoder;
-    }
-
-    // Home Page
-    @RequestMapping("/")
-    public String getHomePage(Model model) {
-        List<User> listUser = this.userService.getAllUserByEmail("vanson010825@gmail.com");
-        System.out.println(listUser);
-        model.addAttribute("eric", listUser);
-        return "home";
     }
 
     // User Table Page
@@ -75,13 +69,23 @@ public class UserController {
     }
 
     @PostMapping("/admin/user/create")
-    public String getTableUserPage(Model model, @ModelAttribute("newUser") User user,
+    public String getTableUserPage(Model model, @ModelAttribute("newUser") @Valid User user,
+            BindingResult bindingResult,
             @RequestParam("file") MultipartFile file) {
+
+        // Validate
+        List<FieldError> errors = bindingResult.getFieldErrors();
+        for (FieldError fieldError : errors) {
+            System.out.println(">>>>" + fieldError.getObjectName() + " - " + fieldError.getDefaultMessage());
+        }
+        //
         String avatarName = this.uploadService.saveUploadFile(file, "avatar");
         String hashPassword = this.passwordEncoder.encode(user.getPassword());
         user.setAvatar(avatarName);
         user.setPassword(hashPassword);
         user.setRole(this.userService.getRoleByName(user.getRole().getName()));
+
+        // save
         this.userService.handleSaveUser(user);
         return "redirect:/admin/user";
     }

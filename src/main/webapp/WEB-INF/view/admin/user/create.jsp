@@ -52,7 +52,7 @@
                         <div class="row">
                           <div class="form-group col-md-6">
                             <label class="form-label">Email:</label>
-                            <form:input type="email" class="form-control" id="email" path="email" required="required" />
+                            <form:input type="email" class="form-control" id="email" path="email" />
                           </div>
 
                           <div class="form-group col-md-6">
@@ -118,12 +118,6 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
           crossorigin="anonymous"></script>
         <!-- <script src="js/scripts.js"></script> -->
-
-        <script>
-          document.getElementById("email").addEventListener("invalid", function (event) {
-            event.target.setCustomValidity("Vui lòng nhập địa chỉ email!");
-          });
-        </script>
       </body>
 
       </html>

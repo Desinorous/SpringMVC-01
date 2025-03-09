@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import vn.hoidanit.laptopshop.model.Roles;
+import vn.hoidanit.laptopshop.model.Role;
 import vn.hoidanit.laptopshop.model.User;
 import vn.hoidanit.laptopshop.repository.RoleRepository;
 import vn.hoidanit.laptopshop.repository.UserRepository;
@@ -40,7 +40,7 @@ public class UserService {
         this.userRepository.deleteById(id);
     }
 
-    public Roles getRoleByName(String name) {
+    public Role getRoleByName(String name) {
         return this.roleRepository.findByName(name);
     }
 

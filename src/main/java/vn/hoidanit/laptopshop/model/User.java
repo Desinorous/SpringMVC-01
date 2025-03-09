@@ -12,6 +12,10 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "users")
@@ -21,9 +25,15 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @NotNull
+    @Email
     private String email;
+    @NotNull
+    @Min(5)
     private String password;
 
+    @NotNull
+    @Min(5)
     @Column(name = "fullname", columnDefinition = "nvarchar(50)")
     private String fullname;
 
@@ -37,25 +47,25 @@ public class User {
     // Join Roles
     @ManyToOne
     @JoinColumn(name = "role_id")
-    private Roles role;
+    private Role role;
 
     // Join Orders
     @OneToMany(mappedBy = "user")
-    private List<Orders> order;
+    private List<Order> order;
 
-    public Roles getRole() {
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(Roles role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 
-    public List<Orders> getOrder() {
+    public List<Order> getOrder() {
         return order;
     }
 
-    public void setOrder(List<Orders> order) {
+    public void setOrder(List<Order> order) {
         this.order = order;
     }
 

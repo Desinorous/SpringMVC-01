@@ -26,11 +26,11 @@ public class OrderDetail {
     // Join Order
     @ManyToOne
     @JoinColumn(name = "order_id")
-    private Orders order;
+    private Order order;
 
     // productId
     @ManyToOne
     @JoinColumn(name = "product_id")
-    private Products products;
+    private Product products;
 
 }
