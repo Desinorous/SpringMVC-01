@@ -16,12 +16,15 @@
         <div class="wrapper">
           <h1>Login</h1>
           <p id="error-message"></p>
-          <form id="form">
+          <c:if test="${param.error != null}">
+            <div class="my-2" style="color: red;">Email or password không hợp lệ!</div>
+          </c:if>
+          <form id="form" method="post" action="/login">
             <div>
               <label for="email-input">
                 <span>@</span>
               </label>
-              <input type="email" name="email" id="email-input" placeholder="Email">
+              <input type="email" name="username" id="email-input" placeholder="Email">
             </div>
             <div>
               <label for="password-input">
@@ -31,6 +34,8 @@
                 </svg>
               </label>
               <input type="password" name="password" id="password-input" placeholder="Password">
+
+              <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
             </div>
             <button type="submit">Login</button>
           </form>

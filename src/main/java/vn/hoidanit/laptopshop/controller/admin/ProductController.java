@@ -59,7 +59,7 @@ public class ProductController {
 
         // Validate
         if (newProductBindingResult.hasErrors()) {
-            return "/admin/product/create";
+            return "admin/product/create";
         }
 
         Product currentProduct = this.productService.getProductById(product.getId());
@@ -85,7 +85,7 @@ public class ProductController {
     public String getDeleteProductPage(Model model, @PathVariable long id) {
         Product deleteProduct = this.productService.getProductById(id);
         model.addAttribute("deleteProduct", deleteProduct);
-        return "/admin/product/delete";
+        return "admin/product/delete";
     }
 
     @PostMapping("/admin/product/delete")
@@ -108,7 +108,7 @@ public class ProductController {
             BindingResult newProductBindingResult,
             @RequestParam("file") MultipartFile file) {
         if (newProductBindingResult.hasErrors()) {
-            return "/admin/product/update";
+            return "admin/product/update";
         }
         Product currentProduct = this.productService.getProductById(updateProduct.getId());
         if (!file.isEmpty()) {

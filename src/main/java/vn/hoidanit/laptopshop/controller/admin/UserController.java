@@ -80,7 +80,7 @@ public class UserController {
         }
 
         if (newUserbindingResult.hasErrors()) {
-            return "/admin/user/create";
+            return "admin/user/create";
         }
 
         String avatarName = this.uploadService.saveUploadFile(file, "avatar");
@@ -123,7 +123,7 @@ public class UserController {
     public String getDeleteUserPage(Model model, @PathVariable long id) {
         User deleteUser = this.userService.getUserById(id);
         model.addAttribute("deleteUser", deleteUser);
-        return "/admin/user/delete";
+        return "admin/user/delete";
     }
 
     @PostMapping("/admin/user/delete")
