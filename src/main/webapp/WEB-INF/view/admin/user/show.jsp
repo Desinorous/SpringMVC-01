@@ -47,6 +47,7 @@
                           <th>ID</th>
                           <th>Email</th>
                           <th>Full Name</th>
+                          <th>Role</th>
                           <th>Action</th>
                         </tr>
                       </thead>
@@ -56,6 +57,7 @@
                             <td>${user.id}</td>
                             <td>${user.email}</td>
                             <td>${user.fullname}</td>
+                            <td>${user.getRole().getName()}</td>
                             <td>
                               <a href="/admin/user/${user.id}" class="btn btn-info">View</a>
                               <a href="/admin/user/update/${user.id}" class="btn btn-warning">Edit</a>

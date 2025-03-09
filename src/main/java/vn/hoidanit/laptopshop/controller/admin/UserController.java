@@ -74,12 +74,10 @@ public class UserController {
         return "admin/user/create";
     }
 
-    // Return User Table Page After Create User
     @PostMapping("/admin/user/create")
     public String getTableUserPage(Model model, @ModelAttribute("newUser") User user,
             @RequestParam("file") MultipartFile file) {
-        String targetFolder = "avatar";
-        String avatarName = this.uploadService.saveUploadFile(file, targetFolder);
+        String avatarName = this.uploadService.saveUploadFile(file, "avatar");
         String hashPassword = this.passwordEncoder.encode(user.getPassword());
         user.setAvatar(avatarName);
         user.setPassword(hashPassword);
@@ -97,12 +95,16 @@ public class UserController {
     }
 
     @PostMapping("/admin/user/update")
-    public String getTablePageFromUpdateUserPage(Model model, @ModelAttribute("updatedUser") User updateUser) {
+    public String getTablePageFromUpdateUserPage(Model model, @ModelAttribute("updatedUser") User updateUser,
+            @RequestParam("file") MultipartFile file) {
         User currentUser = this.userService.getUserById(updateUser.getId());
         if (currentUser != null) {
+            String avatarName = this.uploadService.saveUploadFile(file, "avatar");
             currentUser.setAddress(updateUser.getAddress());
             currentUser.setFullname(updateUser.getFullname());
             currentUser.setPhone(updateUser.getPhone());
+            currentUser.setAvatar(avatarName);
+            currentUser.setRole(this.userService.getRoleByName(updateUser.getRole().getName()));
             this.userService.handleSaveUser(currentUser);
         }
         return "redirect:/admin/user";

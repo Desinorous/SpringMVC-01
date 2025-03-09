@@ -20,6 +20,16 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script>
+          $(document).ready(() => {
+            const avatarFile = $("#avatarFile");
+            avatarFile.change(function (e) {
+              const imgURL = URL.createObjectURL(e.target.files[0]);
+              $("#avatarPreview").attr("src", imgURL);
+              $("#avatarPreview").css({ "display": "block" });
+            });
+          });
+        </script>
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
       </head>
 
@@ -36,7 +46,8 @@
                     <div class="col-md-6 col-12 mx-auto">
                       <h3>Update User</h3>
                       <hr />
-                      <form:form method="post" action="/admin/user/update" modelAttribute="updatedUser">
+                      <form:form method="post" action="/admin/user/update" modelAttribute="updatedUser"
+                        enctype="multipart/form-data">
 
                         <div class="mb-3" style="display: none;">
                           <label class="form-label">Id:</label>
@@ -61,6 +72,29 @@
                         <div class="mb-3">
                           <label class="form-label">Address:</label>
                           <form:input type="text" class="form-control" path="address" />
+                        </div>
+
+
+                        <div class="row mt-3">
+                          <div class="form-group col-md-6">
+                            <label class="form-label">Role:</label>
+                            <form:select class="form-select" path="role.name">
+                              <option selected>Choose...</option>
+                              <form:option value="Admin">Admin</form:option>
+                              <form:option value="User">User</form:option>
+                            </form:select>
+                          </div>
+
+                          <div class="form-group col-md-6">
+                            <label class="form-label" for="avatarFile">Avatar:</label>
+                            <input class="form-control" type="file" id="avatarFile" name="file"
+                              accept=".png, .jpg, .jpeg">
+                          </div>
+                        </div>
+                        <div class="col-12 mb-3 mt-4">
+                          <img class="mx-auto" style="max-height: 250px; display: block;" alt="avatar preview"
+                            id="avatarPreview"
+                            src="/assets/img/avatar/1741441213899-86f73b80e7424f66f2218903e4e6eaa8.jpg">
                         </div>
 
                         <div class="d-flex justify-content-between">
