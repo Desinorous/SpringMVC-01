@@ -60,7 +60,8 @@ public class SecurityConfig {
 
                 .anyRequest().authenticated());
         http.formLogin(formLogin -> formLogin.loginPage("/login").failureUrl("/login?error")
-                .successHandler(myAuthenticationSuccessHandler()).permitAll());
+                .successHandler(myAuthenticationSuccessHandler()).permitAll())
+                .exceptionHandling(ex -> ex.accessDeniedPage("/access-deny"));
         return http.build();
     }
 

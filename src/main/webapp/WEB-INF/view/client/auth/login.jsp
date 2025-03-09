@@ -19,6 +19,9 @@
           <c:if test="${param.error != null}">
             <div class="my-2" style="color: red;">Email or password không hợp lệ!</div>
           </c:if>
+          <c:if test="${param.logout != null}">
+            <div class="my-2" style="color: green;">Bạn đã đăng xuất thành công</div>
+          </c:if>
           <form id="form" method="post" action="/login">
             <div>
               <label for="email-input">
