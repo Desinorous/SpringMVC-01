@@ -12,15 +12,15 @@
                         <div class="col-md-12 col-lg-5">
                             <div id="carouselId" class="carousel slide position-relative" data-bs-ride="carousel">
                                 <div class="carousel-inner" role="listbox">
-                                    <div class="carousel-item active rounded">
-                                        <img src="/client/img/hero-img-1.png"
-                                            class="img-fluid w-100 h-100 bg-secondary rounded" alt="First slide">
-                                        <a href="#" class="btn px-4 py-2 text-white rounded">Fruites</a>
+                                    <div style="width: 512px; height: 384px;" class="carousel-item active rounded">
+                                        <img src="/client/img/chicken-item-3.jpg" class="img-fluid w-100 h-100 rounded"
+                                            alt="First slide">
+                                        <a href="#" class="btn px-4 py-2 text-white rounded">Gà Xào Xả Ớt</a>
                                     </div>
-                                    <div class="carousel-item rounded">
-                                        <img src="/client/img/hero-img-2.jpg" class="img-fluid w-100 h-100 rounded"
+                                    <div style="width: 512px; height: 384px;" class=" carousel-item rounded">
+                                        <img src="/client/img/chicken-item-10.jpg" class="img-fluid w-100 h-100 rounded"
                                             alt="Second slide">
-                                        <a href="#" class="btn px-4 py-2 text-white rounded">Vesitables</a>
+                                        <a href="#" class="btn px-4 py-2 text-white rounded">Gà Bó Xôi</a>
                                     </div>
                                 </div>
                                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselId"

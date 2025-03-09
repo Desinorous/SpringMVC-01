@@ -71,8 +71,6 @@
 
                 <jsp:include page="../layout/banner.jsp" />
 
-                <jsp:include page="../layout/feature.jsp" />
-
 
                 <!-- Fruits Shop Start-->
                 <div class="container-fluid fruite py-5">
@@ -94,6 +92,8 @@
                                 </div>
                             </div>
                             <div class="tab-content">
+
+                                <!-- Tab1 -->
                                 <div id="tab-1" class="tab-pane fade show p-0 active">
                                     <div class="row g-4">
                                         <div class="col-lg-12">
@@ -111,17 +111,21 @@
                                                                 style="top: 10px; left: 10px;">Chicken</div>
                                                             <div
                                                                 class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                                <h4>${product.name}</h4>
+                                                                <h4><a href="/product/${product.id}">
+                                                                        ${product.name}
+                                                                    </a>
+                                                                </h4>
                                                                 <p style="height: 100px;">${product.shortDesc}</p>
                                                                 <div
                                                                     class="d-flex justify-content-between flex-lg-wrap">
-                                                                    <p class="text-dark fs-5 fw-bold mb-0">
+                                                                    <p style="text-align: center; width: 100%;"
+                                                                        class="text-dark fs-5 fw-bold mb-0">
                                                                         ${product.price} VND
                                                                     </p>
                                                                     <a href="#"
-                                                                        class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                                                                        class="mx-auto btn border border-secondary rounded-pill mt-2 px-3 text-primary"><i
                                                                             class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                        Add to cart</a>
+                                                                        Thêm Vô Giỏ</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -131,6 +135,8 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <!-- Tab2 -->
                                 <div id="tab-2" class="tab-pane fade show p-0">
                                     <div class="row g-4">
                                         <div class="col-lg-12">
@@ -187,6 +193,8 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <!-- Tab3 -->
                                 <div id="tab-3" class="tab-pane fade show p-0">
                                     <div class="row g-4">
                                         <div class="col-lg-12">
@@ -243,6 +251,8 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <!-- Tab4 -->
                                 <div id="tab-4" class="tab-pane fade show p-0">
                                     <div class="row g-4">
                                         <div class="col-lg-12">
@@ -299,6 +309,8 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <!-- Tab5 -->
                                 <div id="tab-5" class="tab-pane fade show p-0">
                                     <div class="row g-4">
                                         <div class="col-lg-12">
@@ -383,6 +395,8 @@
                         </div>
                     </div>
                 </div>
+
+                <jsp:include page="../layout/feature.jsp" />
                 <!-- Fruits Shop End-->
 
                 <jsp:include page="../layout/footer.jsp" />

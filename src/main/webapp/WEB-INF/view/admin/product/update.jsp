@@ -92,18 +92,16 @@
                                                         <form:errors style="color: red;" path="quantity" />
                                                     </div>
                                                 </div>
-
-
                                                 <div class="row mt-4">
                                                     <div class="form-group col-md-6">
                                                         <label class="form-label">Factory:</label>
                                                         <form:select class="form-select" path="factory">
                                                             <option selected>Choose...</option>
-                                                            <form:option value="gata">Gà Ta</form:option>
-                                                            <form:option value="gatre">Gà Tre</form:option>
-                                                            <form:option value="gari">Gà Ri</form:option>
-                                                            <form:option value="gadongtao">Gà Đông Tảo</form:option>
-                                                            <form:option value="gatay">Gà Tây</form:option>
+                                                            <form:option value="Gà Ta">Gà Ta</form:option>
+                                                            <form:option value="Gà Tre">Gà Tre</form:option>
+                                                            <form:option value="Gà Ri">Gà Ri</form:option>
+                                                            <form:option value="Gà Đông Tảo">Gà Đông Tảo</form:option>
+                                                            <form:option value="Gà Tây">Gà Tây</form:option>
                                                         </form:select>
                                                     </div>
 
@@ -111,12 +109,12 @@
                                                         <label class="form-label">Target:</label>
                                                         <form:select class="form-select" path="target">
                                                             <option selected>Choose...</option>
-                                                            <form:option value="sinhvien">Sinh Viên</form:option>
-                                                            <form:option value="giadinh">Gia Đình</form:option>
-                                                            <form:option value="danvanphong">Dân Văn Phòng</form:option>
-                                                            <form:option value="gioisieugiau">Giới Siêu Giàu
+                                                            <form:option value="Sinh Viên">Sinh Viên</form:option>
+                                                            <form:option value="Gia Đình">Gia Đình</form:option>
+                                                            <form:option value="Dân Văn Phòng">Dân Văn Phòng
                                                             </form:option>
-                                                            <form:option value="gatay">Gà Tây</form:option>
+                                                            <form:option value="Giới Siêu Giàu">Giới Siêu Giàu
+                                                            </form:option>
                                                         </form:select>
                                                     </div>
 
