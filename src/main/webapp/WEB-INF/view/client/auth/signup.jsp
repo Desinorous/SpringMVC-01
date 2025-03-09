@@ -15,7 +15,7 @@
       <body>
         <div class="wrapper">
           <h1>Signup</h1>
-          <p id="error-message"></p>
+          <p id="error-message">${errorMessage}</p>
           <form:form id="form" method="post" action="/register" modelAttribute="newRegister">
             <div>
               <label for="firstname-input">

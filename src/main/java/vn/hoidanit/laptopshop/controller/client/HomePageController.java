@@ -44,7 +44,11 @@ public class HomePageController {
     }
 
     @PostMapping("/register")
-    public String getRegister(@ModelAttribute("newRegister") RegisterDTO registerDTO) {
+    public String getRegister(Model model, @ModelAttribute("newRegister") RegisterDTO registerDTO) {
+        if (this.userService.checkEmailExists(registerDTO.getEmail())) {
+            model.addAttribute("errorMessage", "Email đã được sử dụng. Vui lòng chọn email khác.");
+            return "/client/auth/signup";
+        }
         User user = this.userService.registerDTOtoUser(registerDTO);
         String hashPassword = this.passwordEncoder.encode(user.getPassword());
         user.setPassword(hashPassword);
