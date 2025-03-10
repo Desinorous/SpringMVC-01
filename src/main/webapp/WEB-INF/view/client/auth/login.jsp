@@ -47,7 +47,7 @@
               <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
             </div>
             <div class="form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <input type="checkbox" name="remember" class="form-check-input" id="exampleCheck1">
               <label class="form-check-label" for="exampleCheck1">Remember me</label>
             </div>
             <button type="submit">Login</button>

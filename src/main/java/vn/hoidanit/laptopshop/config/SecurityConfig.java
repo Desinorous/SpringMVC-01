@@ -24,6 +24,12 @@ import vn.hoidanit.laptopshop.service.UserService;
 @Configuration
 @EnableMethodSecurity(securedEnabled = true)
 public class SecurityConfig {
+    private final CustomUserDetailsService customUserDetailsService;
+
+    public SecurityConfig(CustomUserDetailsService customUserDetailsService) {
+        this.customUserDetailsService = customUserDetailsService;
+    }
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -62,8 +68,16 @@ public class SecurityConfig {
 
                 .anyRequest().authenticated());
         http.formLogin(formLogin -> formLogin.loginPage("/login").failureUrl("/login?error")
+
                 .successHandler(myAuthenticationSuccessHandler()).permitAll())
-                .exceptionHandling(ex -> ex.accessDeniedPage("/access-deny"));
+
+                .exceptionHandling(ex -> ex.accessDeniedPage("/access-deny"))
+
+                .rememberMe(remember -> remember.userDetailsService(customUserDetailsService)
+                        .key("uniqueAndSecret")
+                        .rememberMeParameter("remember")
+                        .rememberMeCookieName("rememberlogin")
+                        .tokenValiditySeconds(7 * 24 * 60 * 60));
         return http.build();
     }
 
