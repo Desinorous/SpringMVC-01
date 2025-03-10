@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class DashboardController {
+public class dashboardController {
 
     @GetMapping("/admin")
     public String getDashBoardPage() {

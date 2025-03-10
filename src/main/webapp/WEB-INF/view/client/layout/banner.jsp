@@ -7,20 +7,27 @@
                     <div class="row g-5 align-items-center">
                         <div class="col-md-12 col-lg-7">
                             <h4 class="mb-3 text-secondary">100% Gà Tươi Ngon</h4>
-                            <h1 class="mb-5 display-3 text-primary">Gà Rán & Gà Nướng Siêu Ngon</h1>
+                            <h1 class="mb-5 display-3 text-primary">Gà Siêu Ngon - Siêu Hấp Dẫn</h1>
+                            <div class="position-relative mx-auto">
+                                <input class="form-control border-2 border-secondary w-75 py-3 px-4 rounded-pill"
+                                    type="number" placeholder="Search">
+                                <button type="submit"
+                                    class="btn btn-primary border-2 border-secondary py-3 px-4 position-absolute rounded-pill text-white h-100"
+                                    style="top: 0; right: 25%;">Submit Now</button>
+                            </div>
                         </div>
                         <div class="col-md-12 col-lg-5">
                             <div id="carouselId" class="carousel slide position-relative" data-bs-ride="carousel">
                                 <div class="carousel-inner" role="listbox">
-                                    <div style="width: 512px; height: 384px;" class="carousel-item active rounded">
-                                        <img src="/client/img/chicken-item-3.jpg" class="img-fluid w-100 h-100 rounded"
-                                            alt="First slide">
-                                        <a href="#" class="btn px-4 py-2 text-white rounded">Gà Xào Xả Ớt</a>
-                                    </div>
-                                    <div style="width: 512px; height: 384px;" class=" carousel-item rounded">
-                                        <img src="/client/img/chicken-item-10.jpg" class="img-fluid w-100 h-100 rounded"
-                                            alt="Second slide">
+                                    <div class="carousel-item active rounded">
+                                        <img src="/client/img/chicken-item-10.jpg"
+                                            class="img-fluid w-100 h-100 bg-secondary rounded" alt="First slide">
                                         <a href="#" class="btn px-4 py-2 text-white rounded">Gà Bó Xôi</a>
+                                    </div>
+                                    <div class="carousel-item rounded">
+                                        <img src="/client/img/chicken-item-3.jpg" class="img-fluid w-100 h-100 rounded"
+                                            alt="Second slide">
+                                        <a href="#" class="btn px-4 py-2 text-white rounded">Gà Xào Xả Ớt</a>
                                     </div>
                                 </div>
                                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselId"

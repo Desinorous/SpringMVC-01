@@ -31,20 +31,54 @@
 
                 <!-- Template Stylesheet -->
                 <link href="/client/css/style.css" rel="stylesheet">
+
+                <style>
+                    @media (min-width: 992px) {
+
+                        .hero-header,
+                        .page-header {
+                            margin-top: 0px !important;
+                        }
+                    }
+                </style>
             </head>
 
             <body>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 mt-5">
-                            <div class="alert alert-danger">
-                                Bạn không có quyền truy cập tài nguyên này
+
+
+                <!-- Spinner Start -->
+                <div id="spinner"
+                    class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
+                    <div class="spinner-grow text-primary" role="status"></div>
+                </div>
+                <!-- Spinner End -->
+
+                <!-- Single Page Header start -->
+                <div class="container-fluid page-header py-5">
+                    <h1 class="text-center text-white display-6">404 Error</h1>
+                    <ol class="breadcrumb justify-content-center mb-0">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    </ol>
+                </div>
+                <!-- Single Page Header End -->
+
+                <!-- 404 Start -->
+                <div class="container-fluid">
+                    <div class="container py-5 text-center">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-6">
+                                <i class="bi bi-exclamation-triangle display-1 text-secondary"></i>
+                                <h1 class="display-1">403</h1>
+                                <h1 class="mb-4">Truy Cập Bị Từ Chối</h1>
+                                <p class="mb-4">Oops Xin lỗi bạn, Bạn không có quyền truy cập tài nguyên này</p>
+                                <a class="btn border-secondary rounded-pill py-3 px-5" href="/">Go Back To
+                                    Home</a>
                             </div>
-                            <a href="/" class="btn btn-success">Trang chủ</a>
                         </div>
                     </div>
                 </div>
 
+                <jsp:include page="../layout/footer.jsp" />
 
                 <!-- JavaScript Libraries -->
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
