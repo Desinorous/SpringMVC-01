@@ -40,7 +40,7 @@ public class HomePageController {
     @GetMapping("/register")
     public String registerPage(Model model) {
         model.addAttribute("newRegister", new RegisterDTO());
-        return "/client/auth/signup";
+        return "client/auth/signup";
     }
 
     @PostMapping("/register")

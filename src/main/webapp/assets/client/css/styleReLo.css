@@ -59,13 +59,13 @@ form {
   gap: 10px;
 }
 
-form>div {
+form>.form-login {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-form label {
+form .label-login {
   flex-shrink: 0;
   height: 50px;
   width: 50px;
@@ -80,7 +80,7 @@ form label {
   font-weight: 500;
 }
 
-form input {
+form .input-login {
   box-sizing: border-box;
   flex-grow: 1;
   min-width: 0;
@@ -94,20 +94,20 @@ form input {
   transition: 150ms ease;
 }
 
-form input:hover {
+form .input-login:hover {
   border-color: var(--accent-color);
 }
 
-form input:focus {
+form .input-login:focus {
   outline: none;
   border-color: var(--text-color);
 }
 
-div:has(input:focus)>label {
+div:has(.input-login:focus)>.label-login {
   background-color: var(--text-color);
 }
 
-form input::placeholder {
+form .input-login::placeholder {
   color: var(--text-color);
 }
 
@@ -150,11 +150,11 @@ a:hover {
   }
 }
 
-form div.incorrect label {
+form div.incorrect .label-login {
   background-color: #f06272;
 }
 
-form div.incorrect input {
+form div.incorrect .input-login {
   border-color: #f06272;
 }
 
