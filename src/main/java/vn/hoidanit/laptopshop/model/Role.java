@@ -49,7 +49,7 @@ public class Role {
     }
 
     public void setDescription(String desc) {
-        this.description = description;
+        this.description = desc;
     }
 
 }

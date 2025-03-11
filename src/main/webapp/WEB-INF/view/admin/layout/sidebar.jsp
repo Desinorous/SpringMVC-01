@@ -11,6 +11,10 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     User
                 </a>
+                <a class="nav-link" href="/admin/role">
+                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    Role
+                </a>
                 <a class="nav-link" href="/admin/product">
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Product

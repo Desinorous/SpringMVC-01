@@ -22,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import jakarta.servlet.ServletContext;
 import jakarta.validation.Valid;
+import vn.hoidanit.laptopshop.model.Role;
 import vn.hoidanit.laptopshop.model.User;
 import vn.hoidanit.laptopshop.repository.UserRepository;
 import vn.hoidanit.laptopshop.service.UploadService;
